@@ -38,14 +38,13 @@ Files used:
 
 ```
 /Ecommerce
-  pipeline.py              <- main ETL script (load → clean → transform → load to DB)
-  schema.sql               <- star schema DDL (tables, indexes, views)
-  data_quality_checks.py   <- run this to investigate the raw data
-  dashboard_guide.txt      <- Power BI visual specs (what to build and where)
-  README.md                <- this file
-  /data                    <- put your CSVs here (not included, download from Kaggle)
-  olist_warehouse.db       <- output SQLite database (created by pipeline.py)
-  pipeline.log             <- runtime log (created when you run the pipeline)
+  pipeline.py              
+  schema.sql            
+  data_quality_checks.py   
+  README.md                
+  /data                   
+  olist_warehouse.db       
+  pipeline.log             
 ```
 
 ---
@@ -57,8 +56,8 @@ Files used:
 pip install pandas numpy
 
 # put your CSVs in the /data folder, then:
-python data_quality_checks.py   # optional but recommended — spot issues early
-python pipeline.py              # runs the full ETL
+python data_quality_checks.py   
+python pipeline.py            
 ```
 
 After that, `olist_warehouse.db` will have all the tables ready to query or connect to Power BI.
@@ -76,9 +75,9 @@ fact_orders (central fact table)
   └── dim_time
 
 Supporting detail tables:
-  ├── order_items  (line-level detail, joins to products + sellers)
-  ├── payments     (one or more per order)
-  └── reviews      (one per order mostly)
+  ├── order_items  
+  ├── payments    
+  └── reviews     
 ```
 
 Key derived columns in `fact_orders`:
